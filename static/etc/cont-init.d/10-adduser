@@ -1,0 +1,16 @@
+#!/usr/bin/with-contenv bash
+
+PUID=${PUID:-1001}
+PGID=${PGID:-1000}
+
+if [ ! "$(id -g bytesized)" -eq "$PGID" ]; then groupmod -o -g "$PGID" bytesized; fi
+
+if [ ! "$(id -u bytesized)" -eq "$PUID" ];
+  echo "Setting UID to '$PUID'"
+  then usermod -o -u "$PUID" bytesized
+else
+  echo "UID already set correctly"
+fi
+
+chown bytesized:bytesized /config
+chown bytesized:bytesized /data
