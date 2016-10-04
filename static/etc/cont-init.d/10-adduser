@@ -1,4 +1,8 @@
 #!/usr/bin/with-contenv bash
+echo "#############################"
+echo "#     BYTESIZED CONNECT     #"
+echo "#   bytesized-hosting.com   #"
+echo "#############################"
 
 PUID=${PUID:-1001}
 PGID=${PGID:-1000}
@@ -14,3 +18,4 @@ fi
 
 chown bytesized:bytesized /config
 chown bytesized:bytesized /data
+chown bytesized:bytesized /media
