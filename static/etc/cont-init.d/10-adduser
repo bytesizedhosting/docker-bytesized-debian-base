@@ -16,6 +16,9 @@ else
   echo "UID already set correctly"
 fi
 
-chown bytesized:bytesized /config
-chown bytesized:bytesized /data
-chown bytesized:bytesized /media
+for folder in config data media; do
+  if [ -d /$folder ]; then
+    echo "Found folder $folder, chowning"
+    chown bytesized:bytesized /$folder
+  fi
+done
